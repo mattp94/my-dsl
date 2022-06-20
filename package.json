@@ -1,0 +1,9 @@
+{
+  "name": "my-dsl",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "chevrotain": "^10.1.2"
+  }
+}
