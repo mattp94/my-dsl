@@ -2,8 +2,12 @@ EXAMPLE
     (3 (4 2 mul) 5 add)
 
 LEXICAL RULES
-    "(" ")" number operator whitespace
+    whitespace   -> \s+
+    leftBracket  -> "("
+    rightBracket -> ")"
+    number       -> \d+
+    operator     -> "add" | "mul"
 
 GRAMMAR RULES
-    expression -> "(" operand{2,} operator ")"
-    operand -> number | expression
+    expression   -> leftBracket operand{2,} operator rightBracket
+    operand      -> number | expression
