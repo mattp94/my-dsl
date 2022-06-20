@@ -1,7 +1,13 @@
+import repl from "node:repl";
+
 import evaluate from "./lib/evaluate.js";
 
-try {
-  console.log(evaluate("(3 (4 2 mul) 5 add)"));
-} catch (err) {
-  console.error(err);
-}
+repl.start({
+  eval: (cmd, context, filename, callback) => {
+    try {
+      callback(null, evaluate(cmd));
+    } catch (err) {
+      callback(err);
+    }
+  },
+});
